@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CardApp extends StatelessWidget {
+  final Widget title;
+  final Widget icon;
+
+  CardApp({super.key, required this.title, required this.icon });
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -8,15 +12,9 @@ class CardApp extends StatelessWidget {
             padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text('I love flutter',
-                      style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.blueGrey
-                      )
-                  ),
-                  Icon(Icons.favorite, color: Colors.red, size: 30.0)
+                children: [
+                  this.title,
+                  this.icon
                 ]
             )
         )

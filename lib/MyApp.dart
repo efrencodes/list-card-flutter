@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'MyCard.dart';
+import 'MyDrawer.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
           backgroundColor: Colors.deepPurple,
           drawer: Drawer(
-              child: Text('Drawer')
+              child: MyDrawer()
           ),
           body: Column(
               children: [
@@ -32,14 +33,17 @@ class MyApp extends StatelessWidget {
                     child: ListView(
                       padding: const EdgeInsets.only(top: 10.0, left: 8.0, right: 8.0),
                       children: [
-                        CardApp(),
-                        CardApp(),
-                        CardApp(),
-                        CardApp(),
-                        CardApp(),
-                        CardApp(),
-                        CardApp(),
-                        CardApp()
+                        for (int i = 1; i <= 100; i++)
+                          CardApp(
+                              title: Text('$i - Card',
+                                  style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.blueGrey
+                                  )
+                              ),
+                              icon: Icon(Icons.favorite, color: Colors.red, size: 30.0)
+                          ),
                       ],
                     )
                 )
